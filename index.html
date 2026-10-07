@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Kağan Albayrak</title>
+<meta name="description" content="Ali Kağan Albayrak: makine öğrenmesi, derin öğrenme ve yerel LLM sistemleri üzerine çalışan yazılım geliştirici. Projeler, deneyim ve CV.">
+<meta name="author" content="Ali Kağan Albayrak">
+<meta name="theme-color" content="#0D0F17">
+<link rel="canonical" href="https://alikaganalbayrak.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233345E0'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial,sans-serif' font-size='26' font-weight='900' text-anchor='middle' fill='%23fff'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="ali-kagan-albayrak.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alikaganalbayrak.github.io/">
+<meta property="og:title" content="Ali Kağan Albayrak · AI &amp; Software Developer">
+<meta property="og:description" content="Makine öğrenmesi, derin öğrenme ve yerel LLM sistemleri. Projelerim, deneyimim ve CV'm.">
+<meta property="og:image" content="https://alikaganalbayrak.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long index page, URL-path eyebrows (/hakkimda), oversized wide display name over a live dot field; Ctrl+K command palette as the signature. Dark-first. */
+:root{
+  --bg:#0D0F17; --bg-2:#141826; --line:#262B3D; --fg:#E9EBF5; --muted:#8F95AD;
+  --accent:#8C9BFF; --accent-ink:#0D0F17; --ok:#5FD3A3;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:14px; --max:1120px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F5F6FB; --bg-2:#FFFFFF; --line:#DADDEA; --fg:#12152A; --muted:#5B6183;
+  --accent:#3345E0; --accent-ink:#FFFFFF; --ok:#14945F; color-scheme:light;
+}}
+:root[data-theme="light"]{
+  --bg:#F5F6FB; --bg-2:#FFFFFF; --line:#DADDEA; --fg:#12152A; --muted:#5B6183;
+  --accent:#3345E0; --accent-ink:#FFFFFF; --ok:#14945F; color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:62px}
+.logo{font:800 15px/1 var(--display);text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.logo b{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-size:12px}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;padding:8px 12px;border-radius:9px;text-decoration:none;color:var(--muted);font-size:15px;transition:color .2s,background .2s}
+.nav ul a:hover{color:var(--fg);background:var(--bg-2)}
+.iconbtn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-2);color:var(--fg);font:500 13px var(--mono);cursor:pointer}
+.iconbtn:hover{border-color:var(--accent)}
+.iconbtn kbd{font:inherit;color:var(--muted)}
+@media (max-width:820px){.nav ul{display:none}.nav .tools{margin-left:auto}}
+.tools{display:flex;gap:8px}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(56px,10vw,120px) clamp(48px,8vw,96px);overflow:hidden;isolation:isolate}
+#field{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero-top{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--bg-2) 80%,transparent);color:var(--fg)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:ping 2.2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 60%,transparent)}80%,100%{box-shadow:0 0 0 9px transparent}}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(46px,10.5vw,142px);line-height:.92;letter-spacing:-.045em;margin:28px 0 0;text-wrap:balance}
+.name .line{display:block}
+.name .out{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+.name .ch{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1),color .35s}
+.name .ch:hover{transform:translateY(-.08em) rotate(-4deg);color:var(--accent);-webkit-text-stroke-color:var(--accent)}
+.lede{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:end;margin-top:40px}
+.lede p{font-size:clamp(19px,2.2vw,24px);line-height:1.45;margin:0;max-width:30ch}
+.rot{color:var(--accent);font-weight:600;display:inline-block;min-width:1ch}
+.rot::after{content:"";display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:14px;font:600 16px var(--body);text-decoration:none;border:1px solid var(--line);background:var(--bg-2);color:var(--fg);transition:transform .2s,border-color .2s,background .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn small{font:500 12px var(--mono);opacity:.75}
+@media (max-width:820px){.lede{grid-template-columns:1fr}.ctas{justify-content:flex-start}}
+
+/* marquee */
+.ticker{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding-block:16px;color:var(--muted)}
+.ticker .track{display:inline-flex;gap:48px;animation:slide 38s linear infinite;font:600 15px var(--display);letter-spacing:.02em;text-transform:uppercase}
+.ticker span::before{content:"✳";color:var(--accent);margin-right:48px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section.block{padding-block:clamp(72px,10vw,128px)}
+.eyebrow{font:500 13px var(--mono);color:var(--accent);letter-spacing:.04em;margin:0 0 18px}
+h2{font:800 clamp(32px,5vw,58px)/1.02 var(--display);letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance;max-width:18ch}
+.ph{text-decoration:underline dashed color-mix(in srgb,var(--accent) 55%,transparent);text-underline-offset:4px;text-decoration-thickness:1px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.portrait{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:
+  radial-gradient(120% 80% at 20% 10%,color-mix(in srgb,var(--accent) 35%,transparent),transparent 60%),
+  repeating-linear-gradient(135deg,var(--bg-2) 0 10px,color-mix(in srgb,var(--line) 50%,var(--bg-2)) 10px 11px);
+  display:grid;place-items:center}
+.portrait picture,.portrait img{display:block;width:100%;height:100%;object-fit:cover}
+.about-text p{margin:0 0 18px;max-width:62ch;color:color-mix(in srgb,var(--fg) 88%,var(--muted))}
+.about-text p.big{font-size:clamp(20px,2.4vw,26px);line-height:1.4;color:var(--fg)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:32px 0 0;border-top:1px solid var(--line)}
+.facts div{padding:16px 0;border-bottom:1px solid var(--line)}
+.facts div:not(:last-child){padding-right:20px}
+.facts dt{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.facts dd{margin:4px 0 0;font-weight:500}
+@media (max-width:760px){.about{grid-template-columns:1fr}.portrait{max-width:280px}.facts{grid-template-columns:1fr}.facts div:not(:last-child){padding-right:0}}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.cell{position:relative;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px;overflow:hidden;min-width:0}
+.cell::before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.cell:hover::before{opacity:1}
+.cell h3{font:600 20px/1.2 var(--display);letter-spacing:-.02em;margin:0 0 10px}
+.cell p{margin:0 0 18px;color:var(--muted);font-size:15.5px}
+.c-a{grid-column:span 4}.c-c{grid-column:span 2}.c-d{grid-column:span 3}.c-e{grid-column:span 3}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:500 13px var(--mono);padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.stat{font:800 64px/1 var(--display);letter-spacing:-.05em;color:var(--accent);font-variant-numeric:tabular-nums}
+@media (max-width:820px){.bento{grid-template-columns:1fr}.c-a,.c-c,.c-d,.c-e{grid-column:auto}}
+
+/* projects */
+.projects{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.proj{border-bottom:1px solid var(--line)}
+.proj a,.proj .row{display:grid;grid-template-columns:72px minmax(0,1fr) auto 40px;gap:20px;align-items:center;padding:26px 8px;text-decoration:none;transition:background .25s,padding .25s}
+.proj a:hover{background:var(--bg-2);padding-inline:20px}
+.proj .yr{font:500 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.proj h3{font:600 clamp(20px,2.6vw,28px)/1.15 var(--display);letter-spacing:-.025em;margin:0}
+.proj p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.proj .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.proj .tags span{font:500 12px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.proj .arr{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);transition:transform .25s,background .25s,color .25s}
+.proj a:hover .arr{transform:rotate(-45deg);background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+@media (max-width:760px){.proj a,.proj .row{grid-template-columns:minmax(0,1fr) 40px}.proj .yr{grid-column:1/-1}.proj .tags{grid-column:1;justify-content:flex-start}.proj .arr{grid-row:2}}
+
+
+/* contact */
+.contact{border:1px solid var(--line);border-radius:28px;padding:clamp(28px,6vw,72px);background:
+  radial-gradient(80% 120% at 100% 0%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 60%),var(--bg-2)}
+.contact h2{max-width:14ch}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:8px 0 32px}
+.mail output{font:600 clamp(18px,3vw,30px) var(--display);letter-spacing:-.02em;user-select:all;word-break:break-all}
+.socials{display:flex;flex-wrap:wrap;gap:10px}
+.socials a{font:500 14px var(--mono);text-decoration:none;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.socials a:hover{border-color:var(--accent);color:var(--accent)}
+footer{padding-block:40px 56px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* experience */
+.exp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.job{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.job-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
+.job h3{font:600 21px/1.25 var(--display);letter-spacing:-.02em;margin:0}
+.job .org{color:var(--accent);font-weight:600}
+.job time{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.job ul{margin:0;padding-left:18px;color:color-mix(in srgb,var(--fg) 82%,var(--muted));font-size:15.5px;display:grid;gap:6px}
+.job ul li::marker{color:var(--accent)}
+.job .chips{margin-top:auto}
+@media (max-width:820px){.exp{grid-template-columns:1fr}}
+
+.langbtn{gap:7px;padding:0 10px}
+.langbtn svg{width:20px;height:14px;border-radius:3px;box-shadow:0 0 0 1px var(--line)}
+
+/* command palette */
+.cmdk{position:fixed;inset:0;z-index:50;display:grid;place-items:start center;padding:14vh 16px 16px;background:color-mix(in srgb,var(--bg) 60%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.cmdk .box{width:min(560px,100%);background:var(--bg-2);border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);overflow:hidden}
+.cmdk input{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--fg);font:500 17px var(--body);padding:18px 20px;outline:none}
+.cmdk ul{list-style:none;margin:0;padding:8px;max-height:50vh;overflow:auto}
+.cmdk li{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:10px;cursor:pointer}
+.cmdk li[aria-selected="true"]{background:color-mix(in srgb,var(--accent) 18%,transparent)}
+.cmdk li span:last-child{font:500 12px var(--mono);color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:10px;font:500 14px var(--body);z-index:60}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><b>AK</b>alikaganalbayrak</a>
+    <ul>
+      <li><a href="#hakkimda">Hakkımda</a></li>
+      <li><a href="#neler-yapiyorum">Neler yapıyorum</a></li>
+      <li><a href="#deneyim">Deneyim</a></li>
+      <li><a href="#projeler">Projeler</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <div class="tools">
+      <button class="iconbtn" id="open-cmdk" type="button" aria-label="Hızlı menüyü aç"><kbd>Ctrl</kbd>K</button>
+      <button class="iconbtn langbtn" id="lang" type="button" aria-label="Switch to English" title="English">
+        <svg id="flag-en" viewBox="0 0 60 40" aria-hidden="true"><clipPath id="uk-c"><path d="M0 0v40h60V0z"/></clipPath><clipPath id="uk-t"><path d="M30 20h30v20zv20H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#uk-c)"><path d="M0 0v40h60V0z" fill="#012169"/><path d="M0 0l60 40m0-40L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0l60 40m0-40L0 40" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="5"/><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="12"/><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="7"/></g></svg>
+        <svg id="flag-tr" viewBox="0 0 60 40" aria-hidden="true" hidden><rect width="60" height="40" fill="#E30A17"/><circle cx="21.5" cy="20" r="10" fill="#fff"/><circle cx="24" cy="20" r="8" fill="#E30A17"/><path fill="#fff" d="M30.6 20l9.04-2.94-5.59 7.69V15.25l5.59 7.69z"/></svg>
+        <span id="lang-code">EN</span>
+      </button>
+      <button class="iconbtn" id="theme" type="button" aria-label="Temayı değiştir">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-top mono">
+        <span class="status"><i></i>Yeni fırsatlara açığım</span>
+        <span id="clock">Türkiye · --:--</span>
+        <span>alikaganalbayrak.github.io</span>
+      </div>
+      <h1 class="name" aria-label="Ali Kağan Albayrak">
+        <span class="line" data-split>Ali Kağan</span>
+        <span class="line out" data-split>Albayrak</span>
+      </h1>
+      <div class="lede">
+        <p>Merhaba, ben Ali Kağan. <span class="rot" id="rot">fikirleri ürüne dönüştürüyorum</span></p>
+        <div class="ctas">
+          <a class="btn primary" href="cv/Ali-Kagan-Albayrak-CV.pdf" download id="cv-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            CV'mi indir <small>PDF</small>
+          </a>
+          <a class="btn" href="#projeler">Projelerime bak</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Makine öğrenmesi</span><span>Derin öğrenme</span><span>Otomotiv yazılımı</span><span>Yerel LLM'ler</span><span>Veri analizi</span><span>Full-stack</span>
+      <span>Makine öğrenmesi</span><span>Derin öğrenme</span><span>Otomotiv yazılımı</span><span>Yerel LLM'ler</span><span>Veri analizi</span><span>Full-stack</span>
+    </div>
+  </div>
+
+  <section class="block" id="hakkimda">
+    <div class="wrap about">
+      <div class="portrait"><picture><source srcset="ali-kagan-albayrak.webp" type="image/webp"><img src="ali-kagan-albayrak.jpg" alt="Ali Kağan Albayrak" width="800" height="1000" loading="lazy" decoding="async"></picture></div>
+      <div class="about-text">
+        <p class="eyebrow">/hakkimda</p>
+        <h2>Merak eden, üreten, sonuna kadar götüren biri.</h2>
+        <p class="big">Bilgisayar mühendisliği alanında, makine öğrenmesi ve derin öğrenme üzerine uzmanlaşıyorum.</p>
+        <p>2026 yazında bir üretim şirketinin AR-GE biriminde staj yaptım. Orada 500.000'den fazla gerçek makine kaydını işleyen, yerel LLM destekli bir analiz sistemi geliştirdim. Sistem yönetime canlı sunuldu ve şirket içi kullanım için onay aldı.</p>
+        <p>Bunun yanında otomotiv yazılımları alanında da uzmanlaşmaya çalışıyorum. Araç içi sistemler ve otonom sürüş, yapay zekâ ile en çok ilgilendiğim kesişim noktası.</p>
+        <dl class="facts">
+          <div><dt>Eğitim</dt><dd>Trakya Üniversitesi, Bilgisayar Mühendisliği</dd></div>
+          <div><dt>Odak</dt><dd>ML, derin öğrenme, otomotiv yazılımı</dd></div>
+          <div><dt>Deneyim</dt><dd>E-Kart (G+D) stajı, 2026</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="neler-yapiyorum">
+    <div class="wrap">
+      <p class="eyebrow">/neler-yapiyorum</p>
+      <h2>Elimden gelenler, kısaca.</h2>
+      <div class="bento">
+        <article class="cell c-a">
+          <h3>Makine öğrenmesi ve derin öğrenme</h3>
+          <p>Veriyi temizleyip modele hazırlamaktan modeli açıklanabilir bir ürüne dönüştürmeye kadar uçtan uca çalışıyorum. Yerel çalışan LLM'lerle gizliliği koruyan sistemler kurmayı seviyorum.</p>
+          <div class="chips"><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Random Forest</span><span>Isolation Forest</span><span>Llama 3 / Ollama</span><span>LangChain</span><span>Streamlit</span></div>
+        </article>
+        <article class="cell c-c">
+          <h3>Diller</h3>
+          <div class="chips"><span>Python</span><span>Java</span><span>C</span><span>SQL</span></div>
+        </article>
+        <article class="cell c-d">
+          <h3>Otomotiv yazılımı</h3>
+          <p>Araç içi gömülü sistemler ve otonom sürüş tarafında kendimi geliştiriyorum. Hedefim yapay zekâ bilgimi araçların gerçek zamanlı dünyasına taşımak.</p>
+          <div class="chips"><span>Gömülü C</span><span>CAN haberleşmesi</span><span>Sensör verisi</span><span>Otonom sürüş</span></div>
+        </article>
+        <article class="cell c-e">
+          <h3>Web ve altyapı</h3>
+          <p>Modellerimi insanların kullanabileceği uygulamalara dönüştürüyorum.</p>
+          <div class="chips"><span>FastAPI</span><span>React</span><span>PostgreSQL</span><span>SQLite</span><span>SQLAlchemy</span><span>Supabase</span><span>PyQt6</span><span>Git</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="deneyim">
+    <div class="wrap">
+      <p class="eyebrow">/deneyim</p>
+      <h2>Deneyim.</h2>
+      <div class="exp">
+        <article class="job">
+          <div class="job-top"><h3>Yerel LLM ve Yazılım Geliştirme Stajyeri</h3><time>Tem – Ağu 2026</time></div>
+          <div class="org">E-Kart (Giesecke+Devrient)</div>
+          <ul>
+            <li>Makine loglarını analiz eden, yerel LLM destekli bir raporlama sistemi geliştirdim.</li>
+            <li>Kesin metrikleri SQL ile hesaplayıp anomalileri Isolation Forest ile tespit ettim.</li>
+            <li>Sistemi yönetime canlı sundum, şirket içi kullanım için onay aldı.</li>
+          </ul>
+          <div class="chips"><span>Python</span><span>Llama 3</span><span>SQL</span><span>scikit-learn</span></div>
+        </article>
+        <article class="job">
+          <div class="job-top"><h3>Yönetim Kurulu Üyesi ve Proje Koordinatörü</h3><time>2025 – 2026</time></div>
+          <div class="org">Trakya Üniversitesi IoT Kulübü</div>
+          <ul>
+            <li>IoT ve gömülü yazılım üzerine eğitimler verdim.</li>
+            <li>Beş kişilik bir ekiple kulübün IoT projelerini koordine ettim.</li>
+            <li>Kulüp içinde çeşitli teknik etkinlikler düzenledim.</li>
+            <li>IoT cihazlarını tanıtan uygulamalı etkinliklerle öğrencileri bu alanla buluşturdum.</li>
+          </ul>
+          <div class="chips"><span>IoT</span><span>Gömülü yazılım</span><span>Eğitmenlik</span><span>Liderlik</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projeler">
+    <div class="wrap">
+      <p class="eyebrow">/projeler</p>
+      <h2>Projelerim.</h2>
+      <ul class="projects">
+        <li class="proj"><a href="https://github.com/AliKaganAlbayrak/local-llm-manufacturing-analytics" target="_blank" rel="noopener">
+          <span class="yr">2026</span>
+          <div><h3>Yerel LLM ile Üretim Analitiği</h3><p>Stajda geliştirdiğim sistemin açık kaynak sürümü. Hesabı SQL yapıyor, yorumu yerel Llama 3 yazıyor. Isolation Forest anormal üretimleri sade bir kök neden açıklamasıyla işaretliyor, operatör geri bildirimiyle öğreniyor.</p></div>
+          <div class="tags"><span>Python</span><span>Llama 3</span><span>scikit-learn</span><span>Streamlit</span></div>
+          <span class="arr" aria-hidden="true">→</span></a></li>
+        <li class="proj"><a href="https://github.com/AliKaganAlbayrak/smart-wardrobe" target="_blank" rel="noopener">
+          <span class="yr">2026</span>
+          <div><h3>Smart Wardrobe</h3><p>Çok kullanıcılı akıllı gardırop uygulaması. Kıyafetleri renk, mevsim, stil ve resmiyete göre puanlayıp kombin öneriyor ve her önerinin nedenini açıklıyor. Canlıda çalışıyor.</p></div>
+          <div class="tags"><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span></div>
+          <span class="arr" aria-hidden="true">→</span></a></li>
+        <li class="proj"><a href="https://github.com/AliKaganAlbayrak/finansal-zeka" target="_blank" rel="noopener">
+          <span class="yr">2026</span>
+          <div><h3>Finansal Zeka</h3><p>Teknik göstergeler (SMA, RSI, MACD) ve Random Forest ile hisselerin kısa vadeli yönünü tahmin eden, Streamlit paneliyle sunulan bir öğrenme projesi.</p></div>
+          <div class="tags"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>Streamlit</span></div>
+          <span class="arr" aria-hidden="true">→</span></a></li>
+        <li class="proj"><a href="https://github.com/AliKaganAlbayrak/sozlesme-risk-analizoru" target="_blank" rel="noopener">
+          <span class="yr">2026</span>
+          <div><h3>Sözleşme Risk Analizörü</h3><p>KVKK, kira ve hizmet sözleşmelerini LLM ile tarayıp riskli maddeleri bulan ve 0-100 arası risk skoru veren masaüstü uygulaması.</p></div>
+          <div class="tags"><span>Python</span><span>PyQt6</span><span>Llama 3.3</span><span>NLP</span></div>
+          <span class="arr" aria-hidden="true">→</span></a></li>
+        <li class="proj"><a href="https://github.com/barissurkit/impostra" target="_blank" rel="noopener">
+          <span class="yr">2026</span>
+          <div><h3>Impostra (Vampir Köylü)</h3><p>Ekip halinde geliştirdiğimiz, siber güvenlik temalı çok oyunculu bir Vampir Köylü oyunu. 6 ile 14 arası oyuncu Rogue AI, Güvenlik Mühendisi, Siber Analist gibi rollerle gece, tartışma ve oylama evrelerini oynuyor. Ağ altyapısını KryoNet ile kurup oyun motoruna bağladım, lobi bildirimleri için yayın sistemini yazdım.</p></div>
+          <div class="tags"><span>Java</span><span>OOP</span><span>KryoNet</span><span>JavaFX</span></div>
+          <span class="arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="iletisim">
+    <div class="wrap">
+      <div class="contact">
+        <p class="eyebrow">/iletisim</p>
+        <h2>Birlikte bir şey yapalım.</h2>
+        <div class="mail">
+          <output id="email">alikaganalbayrak8@gmail.com</output>
+          <button class="iconbtn" id="copy" type="button">Kopyala</button>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/AliKaganAlbayrak" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/alikaganalbayrak" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="cv/Ali-Kagan-Albayrak-CV.pdf" download>CV (PDF) ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>© <span id="yr">2026</span> Ali Kağan Albayrak</span>
+    <span>Ctrl K ile gezin</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" hidden role="dialog" aria-modal="true" aria-label="Hızlı menü">
+  <div class="box">
+    <input id="cmdk-input" type="text" placeholder="Nereye gitmek istersin?" autocomplete="off">
+    <ul id="cmdk-list" role="listbox"></ul>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+  // theme
+  var saved = store('ak-theme'); if(saved) root.setAttribute('data-theme',saved);
+  function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return !window.matchMedia('(prefers-color-scheme: light)').matches}
+  function toggleTheme(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);store('ak-theme',n)}
+  document.getElementById('theme').addEventListener('click',toggleTheme);
+
+  // toast
+  var toastEl=document.getElementById('toast'),tt;
+  function toast(m){toastEl.textContent=m;toastEl.hidden=false;clearTimeout(tt);tt=setTimeout(function(){toastEl.hidden=true},2000)}
+
+  // split name into letters
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var t=el.textContent;el.textContent='';
+    for(var i=0;i<t.length;i++){var s=document.createElement('span');s.className='ch';s.setAttribute('aria-hidden','true');s.textContent=t[i]===' '?' ':t[i];el.appendChild(s)}
+  });
+
+  // clock
+  var clock=document.getElementById('clock');
+  function tick(){try{clock.textContent=T('Türkiye')+' · '+new Intl.DateTimeFormat('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'}).format(new Date())}catch(e){}}
+  tick();setInterval(tick,15000);
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // rotating text
+  var WORDS={tr:['fikirleri ürüne dönüştürüyorum','makine öğrenmesi modelleri geliştiriyorum','derin öğrenmeyle uğraşıyorum','araç yazılımlarına kafa yoruyorum','veriden anlam çıkarıyorum'],en:['I turn ideas into products','I build machine learning models','I work on deep learning','I think about automotive software','I make sense of data']};
+  var words=WORDS.tr;
+  var rot=document.getElementById('rot');
+  if(!reduce){
+    var wi=0,ci=words[0].length,del=true;
+    setTimeout(function step(){
+      var w=words[wi];
+      if(del){ci--;if(ci<=0){del=false;wi=(wi+1)%words.length}}
+      else{ci++;if(ci>=words[wi].length){del=true;rot.textContent=words[wi];return setTimeout(step,2200)}}
+      rot.textContent=words[wi].slice(0,ci)||'​';
+      setTimeout(step,del?35:65);
+    },2600);
+  }
+
+
+  // language
+  var EN={"Hakkımda": "About", "Neler yapıyorum": "What I do", "Deneyim": "Experience", "Projeler": "Projects", "İletişim": "Contact", "Yeni fırsatlara açığım": "Open to new opportunities", "Merhaba, ben Ali Kağan.": "Hi, I'm Ali Kağan.", "CV'mi indir": "Download my CV", "Projelerime bak": "See my projects", "Makine öğrenmesi": "Machine learning", "Derin öğrenme": "Deep learning", "Otomotiv yazılımı": "Automotive software", "Yerel LLM'ler": "Local LLMs", "Veri analizi": "Data analytics", "/hakkimda": "/about", "/neler-yapiyorum": "/what-i-do", "/deneyim": "/experience", "/projeler": "/projects", "/iletisim": "/contact", "Merak eden, üreten, sonuna kadar götüren biri.": "Curious, hands-on, and I see things through.", "Bilgisayar mühendisliği alanında, makine öğrenmesi ve derin öğrenme üzerine uzmanlaşıyorum.": "I work in computer engineering, specializing in machine learning and deep learning.", "2026 yazında bir üretim şirketinin AR-GE biriminde staj yaptım. Orada 500.000'den fazla gerçek makine kaydını işleyen, yerel LLM destekli bir analiz sistemi geliştirdim. Sistem yönetime canlı sunuldu ve şirket içi kullanım için onay aldı.": "In summer 2026 I interned in the R&D unit of a manufacturing company, where I built a local-LLM analytics system that processed more than 500,000 real machine records. It was demoed live to management and approved for internal use.", "Bunun yanında otomotiv yazılımları alanında da uzmanlaşmaya çalışıyorum. Araç içi sistemler ve otonom sürüş, yapay zekâ ile en çok ilgilendiğim kesişim noktası.": "I'm also building expertise in automotive software. In-vehicle systems and autonomous driving are where AI interests me most.", "Eğitim": "Education", "Trakya Üniversitesi, Bilgisayar Mühendisliği": "Trakya University, Computer Engineering", "Odak": "Focus", "ML, derin öğrenme, otomotiv yazılımı": "ML, deep learning, automotive software", "E-Kart (G+D) stajı, 2026": "E-Kart (G+D) internship, 2026", "Elimden gelenler, kısaca.": "What I bring, in short.", "Makine öğrenmesi ve derin öğrenme": "Machine learning and deep learning", "Veriyi temizleyip modele hazırlamaktan modeli açıklanabilir bir ürüne dönüştürmeye kadar uçtan uca çalışıyorum. Yerel çalışan LLM'lerle gizliliği koruyan sistemler kurmayı seviyorum.": "I work end to end, from cleaning and preparing data to turning a model into an explainable product. I like building privacy-preserving systems with locally hosted LLMs.", "Diller": "Languages", "Araç içi gömülü sistemler ve otonom sürüş tarafında kendimi geliştiriyorum. Hedefim yapay zekâ bilgimi araçların gerçek zamanlı dünyasına taşımak.": "I'm developing my skills in in-vehicle embedded systems and autonomous driving. My goal is to bring my AI experience into the real-time world of vehicles.", "Gömülü C": "Embedded C", "CAN haberleşmesi": "CAN bus", "Sensör verisi": "Sensor data", "Otonom sürüş": "Autonomous driving", "Web ve altyapı": "Web and infrastructure", "Modellerimi insanların kullanabileceği uygulamalara dönüştürüyorum.": "I turn my models into applications people can actually use.", "Deneyim.": "Experience.", "Yerel LLM ve Yazılım Geliştirme Stajyeri": "Local LLM & Software Development Intern", "Tem – Ağu 2026": "Jul – Aug 2026", "Makine loglarını analiz eden, yerel LLM destekli bir raporlama sistemi geliştirdim.": "Built a local-LLM reporting system that analyzes machine logs.", "Kesin metrikleri SQL ile hesaplayıp anomalileri Isolation Forest ile tespit ettim.": "Computed exact metrics in SQL and detected anomalies with Isolation Forest.", "Sistemi yönetime canlı sundum, şirket içi kullanım için onay aldı.": "Presented a live demo to management; the system was approved for internal use.", "Yönetim Kurulu Üyesi ve Proje Koordinatörü": "Board Member & Project Coordinator", "Trakya Üniversitesi IoT Kulübü": "IoT Club, Trakya University", "IoT ve gömülü yazılım üzerine eğitimler verdim.": "Gave training sessions on IoT and embedded software.", "Beş kişilik bir ekiple kulübün IoT projelerini koordine ettim.": "Coordinated the club's IoT projects with a five-person team.", "Kulüp içinde çeşitli teknik etkinlikler düzenledim.": "Organized a range of technical events for the club.", "IoT cihazlarını tanıtan uygulamalı etkinliklerle öğrencileri bu alanla buluşturdum.": "Introduced students to the field through hands-on IoT device showcases.", "Gömülü yazılım": "Embedded software", "Eğitmenlik": "Teaching", "Liderlik": "Leadership", "Projelerim.": "My projects.", "Yerel LLM ile Üretim Analitiği": "Local LLM Manufacturing Analytics", "Stajda geliştirdiğim sistemin açık kaynak sürümü. Hesabı SQL yapıyor, yorumu yerel Llama 3 yazıyor. Isolation Forest anormal üretimleri sade bir kök neden açıklamasıyla işaretliyor, operatör geri bildirimiyle öğreniyor.": "An open-source version of the system I built during my internship. SQL does the math and a local Llama 3 writes the interpretation. Isolation Forest flags unusual runs with a plain-language root cause, and the system learns from operator feedback.", "Çok kullanıcılı akıllı gardırop uygulaması. Kıyafetleri renk, mevsim, stil ve resmiyete göre puanlayıp kombin öneriyor ve her önerinin nedenini açıklıyor. Canlıda çalışıyor.": "A multi-user smart wardrobe app. It scores clothes by color, season, style and formality, suggests outfits and explains every recommendation. It's live.", "Finansal Zeka": "Finansal Zeka (Financial Intelligence)", "Teknik göstergeler (SMA, RSI, MACD) ve Random Forest ile hisselerin kısa vadeli yönünü tahmin eden, Streamlit paneliyle sunulan bir öğrenme projesi.": "A learning project that predicts short-term stock direction with technical indicators (SMA, RSI, MACD) and a Random Forest, presented in a Streamlit dashboard.", "Sözleşme Risk Analizörü": "Contract Risk Analyzer", "KVKK, kira ve hizmet sözleşmelerini LLM ile tarayıp riskli maddeleri bulan ve 0-100 arası risk skoru veren masaüstü uygulaması.": "A desktop app that scans privacy, rental and service contracts with an LLM, finds risky clauses and gives a 0–100 risk score.", "Impostra (Vampir Köylü)": "Impostra (Werewolf-style game)", "Ekip halinde geliştirdiğimiz, siber güvenlik temalı çok oyunculu bir Vampir Köylü oyunu. 6 ile 14 arası oyuncu Rogue AI, Güvenlik Mühendisi, Siber Analist gibi rollerle gece, tartışma ve oylama evrelerini oynuyor. Ağ altyapısını KryoNet ile kurup oyun motoruna bağladım, lobi bildirimleri için yayın sistemini yazdım.": "A cybersecurity-themed multiplayer social deduction game we built as a team. 6 to 14 players take roles like Rogue AI, Security Engineer and Cyber Analyst through night, discussion and voting phases. I set up the KryoNet networking layer, connected it to the game engine and wrote the broadcast system for lobby notifications.", "Birlikte bir şey yapalım.": "Let's build something together.", "Kopyala": "Copy", "Ctrl K ile gezin": "Press Ctrl K to navigate", "CV indir": "Download CV", "E-postayı kopyala": "Copy email", "Temayı değiştir": "Toggle theme", "GitHub profilim": "My GitHub", "bölüm": "section", "eylem": "action", "bağlantı": "link", "Nereye gitmek istersin?": "Where do you want to go?", "Adres seçildi, Ctrl+C ile kopyala": "Address selected, press Ctrl+C to copy", "E-posta kopyalandı": "Email copied", "Hızlı menüyü aç": "Open quick menu", "Türkiye": "Turkey"};
+  var lang='tr';
+  function T(k){return lang==='en'&&EN[k]?EN[k]:k}
+  function swapText(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){return n.parentNode.closest('script,style,#rot,#clock,#cmdk-list')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}});
+    var n;while((n=w.nextNode())){
+      if(n.__orig===undefined)n.__orig=n.nodeValue;
+      var k=n.__orig.trim();
+      n.nodeValue=(lang==='en'&&EN[k])?n.__orig.replace(k,EN[k]):n.__orig;
+    }
+  }
+  function setLang(l,save){
+    lang=l;root.setAttribute('lang',l);words=WORDS[l];
+    swapText();
+    rot.textContent=words[0];
+    document.getElementById('cmdk-input').placeholder=T('Nereye gitmek istersin?');
+    document.getElementById('open-cmdk').setAttribute('aria-label',T('Hızlı menüyü aç'));
+    document.getElementById('theme').setAttribute('aria-label',T('Temayı değiştir'));
+    var b=document.getElementById('lang');
+    document.getElementById('flag-en').toggleAttribute('hidden',l==='en');document.getElementById('flag-tr').toggleAttribute('hidden',l!=='en');
+    document.getElementById('lang-code').textContent=l==='en'?'TR':'EN';
+    b.setAttribute('aria-label',l==='en'?'Türkçeye geç':'Switch to English');b.title=l==='en'?'Türkçe':'English';
+    document.title=l==='en'?'Ali Kağan Albayrak · AI & Software Developer':'Ali Kağan Albayrak';
+    tick();
+    if(save)store('ak-lang',l);
+  }
+  document.getElementById('lang').addEventListener('click',function(){setLang(lang==='en'?'tr':'en',true)});
+  var savedLang=store('ak-lang');
+  var navLang=(navigator.language||'tr').toLowerCase();
+  setLang(savedLang||(navLang.indexOf('tr')===0?'tr':'en'),false);
+
+  // counter
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var end=+el.dataset.count,suf=el.dataset.suffix||'';if(reduce){el.textContent=end+suf;return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.disconnect();var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/1200);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(f)})(t0)})});
+    io.observe(el);
+  });
+
+  // bento spotlight
+  document.querySelectorAll('.cell').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
+  // copy email
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=document.getElementById('email').textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);toast(T('Adres seçildi, Ctrl+C ile kopyala'))}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast(T('E-posta kopyalandı'))},sel)}else sel();
+  });
+
+  // dot field
+  var cv=document.getElementById('field'),ctx=cv.getContext('2d'),W,H,dpr,mx=-999,my=-999,dots=[];
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);dots=[];var g=28;for(var y=g/2;y<H;y+=g)for(var x=g/2;x<W;x+=g)dots.push([x,y]);draw()}
+  function draw(){
+    var cs=getComputedStyle(root),fg=cs.getPropertyValue('--muted').trim(),ac=cs.getPropertyValue('--accent').trim();
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<dots.length;i++){var d=dots[i],dx=d[0]-mx,dy=d[1]-my,dist=Math.sqrt(dx*dx+dy*dy),k=Math.max(0,1-dist/180);
+      var ox=k?dx/dist*k*10:0,oy=k?dy/dist*k*10:0;
+      ctx.globalAlpha=.18+k*.8;ctx.fillStyle=k>.05?ac:fg;ctx.beginPath();ctx.arc(d[0]+ox,d[1]+oy,1+k*1.6,0,6.283);ctx.fill()}
+    ctx.globalAlpha=1;
+  }
+  var raf;function sched(){if(!raf)raf=requestAnimationFrame(function(){raf=0;draw()})}
+  window.addEventListener('resize',size);
+  if(!reduce){cv.parentElement.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;sched()});cv.parentElement.addEventListener('pointerleave',function(){mx=my=-999;sched()})}
+  new MutationObserver(sched).observe(root,{attributes:true,attributeFilter:['data-theme']});
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change',sched);
+  size();
+
+  // command palette
+  var cmdk=document.getElementById('cmdk'),inp=document.getElementById('cmdk-input'),list=document.getElementById('cmdk-list'),sel=0,shown=[];
+  function go(id){return function(){document.getElementById(id).scrollIntoView({behavior:reduce?'auto':'smooth'})}}
+  var cmds=[
+    ['Hakkımda','bölüm',go('hakkimda')],['Neler yapıyorum','bölüm',go('neler-yapiyorum')],['Deneyim','bölüm',go('deneyim')],['Projeler','bölüm',go('projeler')],
+    ['İletişim','bölüm',go('iletisim')],
+    ['CV indir','PDF',function(){document.getElementById('cv-btn').click()}],
+    ['E-postayı kopyala','eylem',function(){document.getElementById('copy').click()}],
+    ['Temayı değiştir','eylem',toggleTheme],
+    ['GitHub profilim','bağlantı',function(){document.querySelector('.socials a').click()}]
+  ];
+  function render(){var q=inp.value.toLocaleLowerCase('tr');shown=cmds.filter(function(c){return T(c[0]).toLocaleLowerCase(lang).indexOf(q)>-1});sel=Math.min(sel,Math.max(0,shown.length-1));
+    list.innerHTML='';shown.forEach(function(c,i){var li=document.createElement('li');li.setAttribute('role','option');li.setAttribute('aria-selected',i===sel);li.innerHTML='<span></span><span></span>';li.firstChild.textContent=T(c[0]);li.lastChild.textContent=T(c[1]);li.addEventListener('click',function(){run(i)});li.addEventListener('pointermove',function(){if(sel!==i){sel=i;render()}});list.appendChild(li)})}
+  function open(){cmdk.hidden=false;inp.value='';sel=0;render();inp.focus()}
+  function close(){cmdk.hidden=true}
+  function run(i){var c=shown[i];close();if(c)c[2]()}
+  document.getElementById('open-cmdk').addEventListener('click',open);
+  cmdk.addEventListener('click',function(e){if(e.target===cmdk)close()});
+  inp.addEventListener('input',function(){sel=0;render()});
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();cmdk.hidden?open():close();return}
+    if(cmdk.hidden)return;
+    if(e.key==='Escape')close();
+    else if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%shown.length;render()}
+    else if(e.key==='ArrowUp'){e.preventDefault();sel=(sel-1+shown.length)%shown.length;render()}
+    else if(e.key==='Enter'){e.preventDefault();run(sel)}
+  });
+})();
+</script>
+</body>
+</html>
